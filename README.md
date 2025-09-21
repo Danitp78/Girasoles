@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campo de Girasoles Responsive</title>
+    <title>Campo de Girasoles para Jamileth</title>
     <style>
         * {
             margin: 0;
@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         
-body {
+        body {
             background: linear-gradient(to bottom, #c9f1ff, #f9fdff);
             min-height: 100vh;
             overflow: hidden;
@@ -21,14 +21,49 @@ body {
             align-items: center;
         }
         
-  .container {
+        .container {
             position: relative;
             width: 100%;
             height: 100vh;
             max-width: 1200px;
         }
         
-  /* Flores que caen desde arriba */
+        /* Nombre en el centro */
+        .name-container {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 20;
+            width: 100%;
+            pointer-events: none;
+        }
+        
+        .name {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 
+                2px 2px 0px #ff8c00,
+                4px 4px 0px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(255, 215, 0, 0.4);
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #4b0082;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+        
+        /* Flores que caen desde arriba */
         .falling-flower {
             position: absolute;
             top: -60px;
@@ -38,20 +73,20 @@ body {
             z-index: 5;
         }
         
-  .flower {
+        .flower {
             position: relative;
             display: flex;
             justify-content: center;
         }
         
-  .petals {
+        .petals {
             position: relative;
             width: 36px;
             height: 36px;
             animation: rotate 20s linear infinite;
         }
         
-   .petal {
+        .petal {
             position: absolute;
             width: 18px;
             height: 18px;
@@ -61,7 +96,7 @@ body {
             box-shadow: 0 0 5px rgba(255, 235, 150, 0.5);
         }
         
-   .center {
+        .center {
             position: absolute;
             width: 10px;
             height: 10px;
@@ -72,7 +107,7 @@ body {
             z-index: 10;
         }
         
-  /* Pasto más alto en la parte inferior */
+        /* Pasto más alto en la parte inferior */
         .grass {
             position: absolute;
             bottom: 0;
@@ -86,7 +121,7 @@ body {
             overflow: hidden;
         }
 
- /* Detalles de hierba en el pasto */
+        /* Detalles de hierba en el pasto */
         .grass-detail {
             position: absolute;
             bottom: 0;
@@ -95,7 +130,7 @@ body {
             border-radius: 50% 50% 0 0;
         }
 
- /* Conectores entre girasoles */
+        /* Conectores entre girasoles */
         .connector {
             position: absolute;
             height: 3px;
@@ -107,7 +142,7 @@ body {
             opacity: 0.7;
         }
 
-  /* 🌻 Girasoles en forma de V */
+        /* 🌻 Girasoles en forma de V */
         .sunflowers-container {
             position: absolute;
             bottom: 25vh; /* Ajustado para el pasto más alto */
@@ -120,7 +155,7 @@ body {
             max-width: 800px;
         }
 
- .sunflower {
+        .sunflower {
             position: absolute;
             width: 14vmin; /* Tamaño relativo para móviles */
             height: 25vmin; /* Tamaño relativo para móviles */
@@ -134,7 +169,7 @@ body {
             transform-origin: bottom center;
         }
 
-   .stem {
+        .stem {
             width: 1.5vmin;
             height: 18vmin;
             background: linear-gradient(to top, #388e3c, #81c784);
@@ -143,7 +178,7 @@ body {
             z-index: 2;
         }
 
-  .leaf {
+        .leaf {
             position: absolute;
             width: 4vmin;
             height: 3vmin;
@@ -153,18 +188,19 @@ body {
             z-index: 1;
         }
 
- .leaf:nth-child(1) {
+        .leaf:nth-child(1) {
             top: 4vmin;
             transform: rotate(-15deg);
         }
 
-  .leaf:nth-child(2) {
+        .leaf:nth-child(2) {
             top: 10vmin;
             transform: rotate(15deg);
             left: -1vmin;
             border-radius: 50% 0 0 50%;
         }
- .head {
+
+        .head {
             position: absolute;
             top: -12vmin;
             width: 12vmin;
@@ -178,7 +214,8 @@ body {
             overflow: hidden;
             z-index: 3;
         }
- .head::before {
+
+        .head::before {
             content: '';
             width: 6vmin;
             height: 6vmin;
@@ -187,7 +224,8 @@ body {
             z-index: 2;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-  .head::after {
+
+        .head::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -197,7 +235,7 @@ body {
             z-index: 1;
         }
 
-  .petal-large {
+        .petal-large {
             position: absolute;
             width: 5vmin;
             height: 3vmin;
@@ -208,7 +246,7 @@ body {
             box-shadow: 0 0 5px rgba(251, 192, 45, 0.5);
         }
 
-   .petal-medium {
+        .petal-medium {
             position: absolute;
             width: 4vmin;
             height: 2.5vmin;
@@ -218,7 +256,7 @@ body {
             z-index: 1;
         }
 
-   .petal-small {
+        .petal-small {
             position: absolute;
             width: 3vmin;
             height: 2vmin;
@@ -228,8 +266,8 @@ body {
             z-index: 1;
         }
 
-   .seed {
-          position: absolute;
+        .seed {
+            position: absolute;
             width: 0.7vmin;
             height: 0.7vmin;
             background: #3e2723;
@@ -237,14 +275,13 @@ body {
             z-index: 3;
         }
 
-  /* Animacion florecer */
+        /* Animaciones */
         @keyframes bloom {
             0%   { transform: scale(0.2); opacity: 0; }
             60%  { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
 
-  /* Movimiento suave izquierda-derecha */
         @keyframes sway {
             0%   { transform: rotate(0deg); }
             25%  { transform: rotate(2deg); }
@@ -253,7 +290,6 @@ body {
             100% { transform: rotate(0deg); }
         }
 
-  /* Animaciones de caída */
         @keyframes fall {
             to {
                 transform: translateY(110vh) rotate(360deg);
@@ -265,9 +301,40 @@ body {
             from { transform: rotate(0deg); }
             to   { transform: rotate(360deg); }
         }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    2px 2px 0px #ff8c00,
+                    4px 4px 0px rgba(0, 0, 0, 0.2),
+                    0 0 20px rgba(255, 215, 0, 0.6),
+                    0 0 40px rgba(255, 215, 0, 0.4);
+            }
+            to {
+                text-shadow: 
+                    2px 2px 0px #ff8c00,
+                    4px 4px 0px rgba(0, 0, 0, 0.2),
+                    0 0 30px rgba(255, 215, 0, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
 
         /* Media queries para dispositivos móviles */
         @media (max-width: 768px) {
+            .name {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
             .sunflowers-container {
                 width: 95%;
                 bottom: 22vh;
@@ -322,6 +389,14 @@ body {
         }
 
         @media (max-width: 480px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .sunflowers-container {
                 width: 98%;
                 bottom: 20vh;
@@ -367,6 +442,15 @@ body {
 
         /* Ajustes para orientación horizontal */
         @media (max-height: 500px) and (orientation: landscape) {
+            .name {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .grass {
                 height: 35vh;
             }
@@ -388,6 +472,12 @@ body {
 </head>
 <body>
     <div class="container" id="container">
+        <!-- Nombre en el centro -->
+        <div class="name-container">
+            <h1 class="name">Jamileth</h1>
+            <p class="subtitle">Brillando como el sol</p>
+        </div>
+        
         <!-- Conectores entre girasoles -->
         <div class="connectors-container" id="connectors-container"></div>
         
@@ -513,41 +603,41 @@ body {
                     { left: 60, bottom: 0 }    // Lateral derecho 3
                 ];
                 
-  // Conectar cada girasol con sus vecinos
+                // Conectar cada girasol con sus vecinos
                 for (let i = 0; i < sunflowerPositions.length; i++) {
                     for (let j = i + 1; j < sunflowerPositions.length; j++) {
                         const pos1 = sunflowerPositions[i];
                         const pos2 = sunflowerPositions[j];
                         
-  // Solo conectar girasoles cercanos
+                        // Solo conectar girasoles cercanos
                         const distance = Math.abs(pos1.left - pos2.left);
                         
-  if (distance < 35) {
+                        if (distance < 35) {
                             const connector = document.createElement('div');
                             connector.className = 'connector';
                             
-   // Calcular ángulo y longitud
+                            // Calcular ángulo y longitud
                             const deltaX = pos2.left - pos1.left;
                             
-  const length = Math.abs(deltaX);
+                            const length = Math.abs(deltaX);
                             const angle = deltaX > 0 ? 0 : 180;
                             
-   connector.style.width = `${length}%`;
+                            connector.style.width = `${length}%`;
                             connector.style.left = `${pos1.left}%`;
                             connector.style.transform = `rotate(${angle}deg)`;
                             
-  connectorsContainer.appendChild(connector);
+                            connectorsContainer.appendChild(connector);
                         }
                     }
                 }
             }
             
- function createSunflowerPetals() {
+            function createSunflowerPetals() {
                 for (let i = 1; i <= 7; i++) {
                     const head = document.getElementById(`head-${i}`);
                     if (!head) continue;
                     
-  // Crear pétalos grandes (capa exterior)
+                    // Crear pétalos grandes (capa exterior)
                     for (let j = 0; j < 14; j++) {
                         const petal = document.createElement('div');
                         petal.className = 'petal-large';
@@ -555,7 +645,7 @@ body {
                         head.appendChild(petal);
                     }
                     
-   // Crear pétalos medianos (capa media)
+                    // Crear pétalos medianos (capa media)
                     for (let j = 0; j < 14; j++) {
                         const petal = document.createElement('div');
                         petal.className = 'petal-medium';
@@ -563,7 +653,7 @@ body {
                         head.appendChild(petal);
                     }
                     
-   // Crear pétalos pequeños (capa interior)
+                    // Crear pétalos pequeños (capa interior)
                     for (let j = 0; j < 14; j++) {
                         const petal = document.createElement('div');
                         petal.className = 'petal-small';
@@ -573,30 +663,31 @@ body {
                 }
             }
             
-  function createSeeds() {
+            function createSeeds() {
                 for (let i = 1; i <= 7; i++) {
                     const head = document.getElementById(`head-${i}`);
                     if (!head) continue;
-                        // Crear semillas en el centro
+                    
+                    // Crear semillas en el centro
                     for (let j = 0; j < 20; j++) {
                         const seed = document.createElement('div');
                         seed.className = 'seed';
                         
-  const angle = j * (360/20);
+                        const angle = j * (360/20);
                         const radius = 40;
                         
-  seed.style.transform = `rotate(${angle}deg) translate(${radius}%)`;
+                        seed.style.transform = `rotate(${angle}deg) translate(${radius}%)`;
                         
-   head.appendChild(seed);
+                        head.appendChild(seed);
                     }
                 }
             }
             
-function createFallingFlowers() {
+            function createFallingFlowers() {
                 // Menos flores cayendo en móviles para mejor rendimiento
                 const flowerCount = window.innerWidth < 768 ? 4 : 6;
                 
-   for (let i = 0; i < flowerCount; i++) {
+                for (let i = 0; i < flowerCount; i++) {
                     setTimeout(() => {
                         createFallingFlower();
                         // Crear una nueva flor cada 7 segundos (lentas)
@@ -605,18 +696,19 @@ function createFallingFlowers() {
                 }
             }
             
-  function createFallingFlower() {
+            function createFallingFlower() {
                 const flower = document.createElement('div');
                 flower.className = 'falling-flower';
                 
-   const leftPosition = 5 + Math.random() * 90;
+                const leftPosition = 5 + Math.random() * 90;
                 const fallDuration = 18 + Math.random() * 12; // Muy lentas
                 const rotation = Math.random() * 360;
                 
-   flower.style.left = `${leftPosition}%`;
+                flower.style.left = `${leftPosition}%`;
                 flower.style.animationDuration = `${fallDuration}s`;
-                    flower.innerHTML = `
-  <div class="flower">
+                
+                flower.innerHTML = `
+                    <div class="flower">
                         <div class="petals">
                             ${createPetals(rotation)}
                             <div class="center"></div>
@@ -624,15 +716,15 @@ function createFallingFlowers() {
                     </div>
                 `;
                 
-  container.appendChild(flower);
+                container.appendChild(flower);
                 
-   // Eliminar la flor después de que termine de caer
+                // Eliminar la flor después de que termine de caer
                 setTimeout(() => {
                     flower.remove();
                 }, fallDuration * 1000);
             }
             
-   function createPetals(rotation) {
+            function createPetals(rotation) {
                 let petalsHTML = '';
                 for (let i = 0; i < 8; i++) {
                     petalsHTML += `<div class="petal" style="transform: rotate(${i * 45 + rotation}deg)"></div>`;
@@ -640,7 +732,7 @@ function createFallingFlowers() {
                 return petalsHTML;
             }
 
-  // Reajustar en redimensionamiento
+            // Reajustar en redimensionamiento
             window.addEventListener('resize', function() {
                 // Limpiar conectores existentes
                 connectorsContainer.innerHTML = '';
