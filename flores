@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campo de Girasoles Responsive</title>
+    <title>Campo de Girasoles para Jamileth</title>
     <style>
         * {
             margin: 0;
@@ -26,6 +26,41 @@
             width: 100%;
             height: 100vh;
             max-width: 1200px;
+        }
+        
+        /* Nombre en el centro */
+        .name-container {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 20;
+            width: 100%;
+            pointer-events: none;
+        }
+        
+        .name {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 
+                2px 2px 0px #ff8c00,
+                4px 4px 0px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(255, 215, 0, 0.4);
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #4b0082;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            animation: fadeInOut 4s ease-in-out infinite;
         }
         
         /* Flores que caen desde arriba */
@@ -240,14 +275,13 @@
             z-index: 3;
         }
 
-        /* Animacion florecer */
+        /* Animaciones */
         @keyframes bloom {
             0%   { transform: scale(0.2); opacity: 0; }
             60%  { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Movimiento suave izquierda-derecha */
         @keyframes sway {
             0%   { transform: rotate(0deg); }
             25%  { transform: rotate(2deg); }
@@ -256,7 +290,6 @@
             100% { transform: rotate(0deg); }
         }
 
-        /* Animaciones de caída */
         @keyframes fall {
             to {
                 transform: translateY(110vh) rotate(360deg);
@@ -268,9 +301,40 @@
             from { transform: rotate(0deg); }
             to   { transform: rotate(360deg); }
         }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    2px 2px 0px #ff8c00,
+                    4px 4px 0px rgba(0, 0, 0, 0.2),
+                    0 0 20px rgba(255, 215, 0, 0.6),
+                    0 0 40px rgba(255, 215, 0, 0.4);
+            }
+            to {
+                text-shadow: 
+                    2px 2px 0px #ff8c00,
+                    4px 4px 0px rgba(0, 0, 0, 0.2),
+                    0 0 30px rgba(255, 215, 0, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
 
         /* Media queries para dispositivos móviles */
         @media (max-width: 768px) {
+            .name {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
             .sunflowers-container {
                 width: 95%;
                 bottom: 22vh;
@@ -325,6 +389,14 @@
         }
 
         @media (max-width: 480px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .sunflowers-container {
                 width: 98%;
                 bottom: 20vh;
@@ -370,6 +442,15 @@
 
         /* Ajustes para orientación horizontal */
         @media (max-height: 500px) and (orientation: landscape) {
+            .name {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .grass {
                 height: 35vh;
             }
@@ -391,6 +472,12 @@
 </head>
 <body>
     <div class="container" id="container">
+        <!-- Nombre en el centro -->
+        <div class="name-container">
+            <h1 class="name">Jamileth</h1>
+            <p class="subtitle">Brillando como el sol</p>
+        </div>
+        
         <!-- Conectores entre girasoles -->
         <div class="connectors-container" id="connectors-container"></div>
         
